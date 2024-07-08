@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Bella's Fake Store</a>
         <button
@@ -80,7 +80,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         fetchCategories();
         fetchProducts("https://api.escuelajs.co/api/v1/products");
-        renderChart(); // Render the chart when the page loads
+        renderChart();
       });
 
       async function fetchCategories() {
@@ -100,7 +100,6 @@
                     `;
           });
 
-          // Add event listeners to dropdown items
           let dropdownItems =
             categoryDropdown.querySelectorAll(".dropdown-item");
           dropdownItems.forEach((item) => {
@@ -127,7 +126,7 @@
 
       function displayProducts(productsData) {
         let products = document.querySelector(".products");
-        products.innerHTML = ""; // Clear existing products
+        products.innerHTML = "";
 
         productsData.forEach((product) => {
           products.innerHTML += `
@@ -177,7 +176,7 @@
           tooltip: {},
           xAxis: {
             type: "category",
-            data: [], // Will be filled with category names
+            data: [],
           },
           yAxis: {
             type: "value",
@@ -187,7 +186,7 @@
             {
               name: "Products",
               type: "bar",
-              data: [], // Will be filled with product counts
+              data: [],
             },
           ],
         };
